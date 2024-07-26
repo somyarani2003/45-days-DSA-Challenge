@@ -1,0 +1,39 @@
+Majority Element
+
+
+This problem solved by Moore's Voting Algorithm
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        int cnt=0;
+        int x=0;
+        for(int i=0;i<n;i++){
+            if(cnt==0){
+                cnt=1;
+                x=nums[i];
+            }
+            else if(x==nums[i]){
+                cnt++;
+            }
+            else{
+                cnt--;
+            }
+        }
+        int cnt1=0;
+        for(int i=0;i<n;i++){
+            if(x==nums[i]){
+                cnt++;
+            }
+            if(cnt>n/2){
+            return x;
+        }
+        }
+        
+        return -1;
+    }
+};
+
+TC:- O(n)
+Sc:- O(1)
